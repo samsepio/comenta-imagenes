@@ -37,5 +37,8 @@ router.post('/edit/:id',async(req,res,next)=>{
 	await Task.update({_id: id},req.body);
 	res.redirect('/');
 });
-
+router.post('/upload',(req,res,next)=>{
+	console.log(req.file);
+	res.redirect('/');
+});
 module.exports=router;
