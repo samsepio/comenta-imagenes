@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<title>PhothoMeme</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1 mx-auto">PhothoMeme</span>
+		</nav>
+		<br>
+		<center><h1>Sube Tu Imagen</h1></center>
+		<div class="card" style="width: 18rem;">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title"></h5>
+				<p class="card-text"></p>
+				<form action="/add"method="POST">
+					<input type="text"name="users"class="form-control"placeholder="Usuario"id="Usuario">
+					<textarea cols="8"name="commentary"class="form-control"placeholder="Adiciona Un Comentario"id="comentario"></textarea>
+					<button type="submit"class="btn btn-primary btn-block"id="agregar">Agregar Comentario</button>
+			</div>
+		</div>
+		 <% for(var i=0; i < tasks.length; i++) { %>
+		<div class="card mx-auto" style="width: 18rem;">
+			<div class="card-body mx-auto">
+				<h5 class="card-title mx-auto"><%= tasks[i].users  %></h5>
+				<p class="card-text mx-auto"><%= tasks[i].commentary %></p>
+				<a class="btn <%= tasks[i].status ? 'btn-dark':'btn-success'%>"href="/gusta/<%= tasks[i]._id %>">Me Gusta</a>
+				<a class="btn btn-danger"href="/delete/<%= tasks[i]._id %>">Eliminar</a>
+				<a class="btn btn-info"href="/edit/<%= tasks[i]._id %>">Editar</a>
+			</div>
+		</div>
+		<% } %>
+	</body>
+</html>
